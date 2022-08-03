@@ -1,0 +1,153 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$curriculumVitaeFront-primary: mat.define-palette(mat.$indigo-palette);
+$curriculumVitaeFront-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$curriculumVitaeFront-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$curriculumVitaeFront-theme: mat.define-light-theme((
+  color: (
+    primary: $curriculumVitaeFront-primary,
+    accent: $curriculumVitaeFront-accent,
+    warn: $curriculumVitaeFront-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($curriculumVitaeFront-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*{
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  position: fixed;                                        
+  z-index: 100;
+}
+
+.grande{
+                                                                       /* barra de navegacion*/
+  position: fixed;
+  z-index: 100;
+   /* fallback for old browsers */
+background: #f6d365;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to bottom, rgba(246, 211, 101, 0.95), rgba(253, 160, 133, 0.95));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to bottom, rgba(246, 211, 101, 0.95), rgba(253, 160, 133, 0.95))
+}
+
+nav ul {
+  list-style: none;
+  overflow: hidden;                       /* Limpiamos errores de float */
+}
+.quiensoy{
+  height:720px;                           /*seccion de juan ignacio*/
+  padding-top: 75px;
+  /* fallback for old browsers */
+background: #6a85b6;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to top, rgba(106, 133, 182, 0.5), rgba(186, 200, 224, 0.5));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to top, rgba(106, 133, 182, 0.5), rgba(186, 200, 224, 0.5))
+}
+.mistrabajos{
+  height:720px;
+  padding-top: 75px;              /*seccion de portfolio*/
+  /* fallback for old browsers */
+background: #6a85b6;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to top, rgba(106, 133, 182, 0.5), rgba(186, 200, 224, 0.5));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to top, rgba(106, 133, 182, 0.5), rgba(186, 200, 224, 0.5))
+}
+.info{
+  height:720px;
+  padding-top: 75px;                              /*seccion de personal*/
+  /* fallback for old browsers */
+background: #6a85b6;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to top, rgba(106, 133, 182, 0.5), rgba(186, 200, 224, 0.5));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to top, rgba(106, 133, 182, 0.5), rgba(186, 200, 224, 0.5))
+}
+.formulariocontacto{
+  height:720px;
+  padding-top: 65px;                              /*seccion de Formulario*/
+  /* fallback for old browsers */
+background: #6a85b6;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to top, rgba(106, 133, 182, 0.5), rgba(186, 200, 224, 0.5));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to top, rgba(106, 133, 182, 0.5), rgba(186, 200, 224, 0.5))
+}
+.carousel-caption{
+  height: 550px;
+}
+.carousel-inner{
+  height:720px;
+}
+.btn{
+  background:#FAE5D3 !important;
+  color: black !important;
+  border-color: black !important;
+}
+
+.frase{
+  color:#FAE5D3;
+}
+
+.pie{
+  /* fallback for old browsers */
+background: #ffecd2;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to bottom, rgba(255, 236, 210, 0.95), rgba(252, 182, 159, 0.95));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to bottom, rgba(255, 236, 210, 0.95), rgba(252, 182, 159, 0.95))
+
+}
+
+.accordion-body{
+  color: rgba(145, 122, 72, 0.719);
+}
+.formulario{
+  padding: 30px !important;
+}
+.redes{
+  text-decoration:none;
+}
