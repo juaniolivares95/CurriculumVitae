@@ -12,6 +12,12 @@ import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { EducationComponent } from './components/education/education.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +27,13 @@ import {HttpClientModule} from '@angular/common/http';
     ListProjectsComponent,
     MainNavComponent,
     AboutMeComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    LoginComponent,
+    PortfolioComponent,
+    ExperienceComponent,
+    FooterComponent,
+    SkillsComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,
