@@ -11,71 +11,133 @@
                 <h3 class="title-a">
                   EDUCACIÓN
                 </h3>
+                <button  type="button" class="btn btn-success" style="float: right;" data-bs-toggle="modal" data-bs-target="#neweducation">
+                  <i class="bi bi-plus-square"></i>
+                </button>
                 <div class="line-mf"></div>
               </div>
             </div>
           </div>
-
-          <div class="accordion accordion-flush border border-dark border-2
-            rounded-3" id="accordionFlushExample">
-            <div class="accordion-item">
+          <div class="accordion accordion-flush border border-dark border-2 rounded-3" id="accordionFlushExample">
+            <div class="accordion-item" *ngFor="let education of educations">
               <h2 class="accordion-header " id="flush-headingOne">
                 <button class="accordion-button collapsed" type="button"
                   data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
                   aria-expanded="false" aria-controls="flush-collapseOne">
-                  <h4 class="s-title"> Bachillerato en Informatica <img src="assets/img/sanPablo.png" alt="" class="img-fluid" style="width: 120px; border-radius: 10%;"></h4>
+                  <h4 class="s-title">{{education.degree_name}}<img src="assets/img/{{education.img_institution}}" alt="" class="img-fluid" style="width: 120px; border-radius: 10%;"></h4>
                 </button>
               </h2>
               <div id="flush-collapseOne" class="accordion-collapse collapse"
                 aria-labelledby="flush-headingOne"
                 data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p class="subtitle-a"><b>Institución: </b>Colegio San Pablo </p>
-                  <p class="subtitle-a"><b>Fecha: </b>2002-2017</p>
+                  <p class="subtitle-a"><b>Institución: </b>{{education.institution_name}}</p>
+                  <p class="subtitle-a"><b>Fecha: </b>{{education.start_date}} a {{education.finish_date}}</p>
+                  <button  type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#updateducation">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button  type="button" class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#delete">
+                    <i class="bi bi-trash"></i>
+                  </button>
                 </div>
               </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingTwo">
-                <button class="accordion-button collapsed" type="button"
-                  data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                  aria-expanded="false" aria-controls="flush-collapseTwo">
-                  <h4 class="s-title"> Ing. Sistemas de la Información <img src="assets/img/utnfrm.png" alt="" class="img-fluid" style="width: 120px; border-radius: 10%;"></h4>
-                </button>
-              </h2>
-              <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                aria-labelledby="flush-headingTwo"
-                data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                  <p class="subtitle-a"><b>Institución: </b>UTN-FRM</p>
-                  <p class="subtitle-a"><b>Fecha: </b>2018-actual</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingThree">
-                <button class="accordion-button collapsed" type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseThree"
-                  aria-expanded="false" aria-controls="flush-collapseThree">
-                  <h4 class="s-title"> Full Stack Developer Jr <img src="assets/img/logoargProg.png" alt="" class="img-fluid" style="width: 120px; border-radius: 10%;"></h4>
-                </button>
-              </h2>
-              <div id="flush-collapseThree" class="accordion-collapse collapse"
-                aria-labelledby="flush-headingThree"
-                data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                  <p class="subtitle-a"><b>Institución: </b>Argentina Programa</p>
-                  <p class="subtitle-a"><b>Fecha: </b>2022-2022</p>
-                </div>
-              </div>
-            </div>
-
+            </div>           
           </div>
         </div>
       </div>
     </div>
   </div>
 </section><!-- End About Section -->
+
+
+
+
+<!-- Modal 
+<div class="modal fade" id="neweducation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: linear-gradient(50deg, #3b5acc  10%, #310441  90%);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="color: white;">Crear Educación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div class="container">
+          <form >
+            <h3 style="color: white;">Titulo Educativo</h3>
+            <div class="form-field">
+              <input id="degree_name" type="text" placeholder=""
+              class="form-control"  />
+            </div>
+            <h3 style="color: white;">Nombre de la Institución</h3>
+            <div class="form-field">
+              <input id="institution_name" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Fecha de Inicio</h3>
+            <div class="form-field">
+              <input id="start_date" type="date" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Fecha de Fin</h3>
+            <div class="form-field">
+              <input id="finish_date" type="date" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Imagen de la Institución</h3>
+            <div class="form-field">
+              <input type="file" class="form-control" name="img_institution" required>
+            </div>
+            <div class="form-field">
+              <button class="btn btn-primary" type="submit">EDITAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<!-- Modal 
+<div class="modal fade" id="updateducation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: linear-gradient(50deg, #3b5acc  10%, #310441  90%);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="color: white;">Editar Educación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div class="container">
+          <form >
+            <h3 style="color: white;">Titulo Educativo</h3>
+            <div class="form-field">
+              <input id="degree_name" type="text" placeholder=""
+              class="form-control"  />
+            </div>
+            <h3 style="color: white;">Nombre de la Institución</h3>
+            <div class="form-field">
+              <input id="institution_name" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Fecha de Inicio</h3>
+            <div class="form-field">
+              <input id="start_date" type="date" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Fecha de Fin</h3>
+            <div class="form-field">
+              <input id="finish_date" type="date" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Imagen de la Institución</h3>
+            <div class="form-field">
+              <input type="file" class="form-control" name="img_institution" required>
+            </div>
+            <div class="form-field">
+              <button class="btn btn-primary" type="submit">EDITAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->

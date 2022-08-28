@@ -1,16 +1,55 @@
 <!-- ======= Hero Section ======= -->
-<div id="hero" class="hero route bg-image" style="background-image: url(assets/img/prueba1.jpg)">
+<div id="hero" class="hero route bg-image" style="background-image: url(assets/img/{{profile?.img_banner}})">
   <div class="overlay-itro"></div>
   <div class="hero-content display-table">
     <div class="table-cell">
       <div class="container">
-        <!--<p class="display-6 color-d">Hello, world!</p>-->
-        <h1 class="title-a mb-4" style="color: white;">Juan Ignacio Olivares</h1>
+        <h1 class="title-a mb-4" style="color: white;">{{profile?.name}}</h1>
         <br>
-        <p class="hero-subtitle">Full Stack Developer Jr</p>
-        <p class="hero-subtitle"><span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
-        <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+        <p class="hero-subtitle">{{profile?.degree}}</p>
+        
       </div>
     </div>
   </div>
 </div><!-- End Hero Section -->
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal 
+<div class="modal fade" id="banner" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: linear-gradient(50deg, #3b5acc  10%, #310441  90%);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="color: white;">Editar Banner</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div class="container">
+          <form >
+            <h3 style="color: white;">Nombre y Apellido</h3>
+            <div class="form-field">
+              <input id="name" type="text" placeholder=""
+              class="form-control"  />
+            </div>
+            <h3 style="color: white;">Profesión</h3>
+            <div class="form-field">
+              <input id="degree" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Imagen del Banner</h3>
+            <div class="form-field">
+              <input type="file" class="form-control" name="img_banner" required>
+            </div>
+            <div class="form-field">
+              <button class="btn btn-primary" type="submit">EDITAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+

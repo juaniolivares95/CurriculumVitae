@@ -10,59 +10,157 @@
             <p class="subtitle-a" style="color: rgb(255, 255, 255);">
               Recopilación de trabajos que he llevado a cabo.
             </p>
+            <button  type="button" class="btn btn-success" style="float: right;" data-bs-toggle="modal" data-bs-target="#newproject">
+              <i class="bi bi-plus-square"></i>
+            </button>
             <div class="line-mf"></div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" *ngFor="let project of projects">
           <div class="work-box">
-            <a href="assets/img/picadas1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
+            <a href="assets/img/{{project.img_project}}" data-gallery="portfolioGallery" class="portfolio-lightbox">
               <div class="work-img">
-                <img src="assets/img/picadas1.jpg" alt="" class="img-fluid">
+                <img src="assets/img/{{project.img_project}}" alt="" class="img-fluid">
               </div>
             </a>
             <div class="work-content">
               <div class="row">
                 <div class="col-sm-8">
-                  <h2 class="w-title">Picadas Macanudas</h2>
+                  <h2 class="w-title">{{project.project_name}}</h2>
                   <div class="w-more">
-                    <span class="w-ctegory">Desarrollo Web</span> / <span class="w-date">20 Ene. 2022</span>
+                    <span class="w-ctegory">{{project.type_project}}</span> / <span class="w-date">{{project.date_of_realization}}</span>
+                    <p>{{project.description}}</p>
+                    <span class="w-date">Cliente: {{project.client}}</span>
                   </div>
                 </div>
                 <div class="col-sm-4">
                   <div class="w-like">
-                    <a href="project"> <span class="bi bi-plus-circle"></span></a>
+                    <a href="{{project.link_proyect}}"> <span class="bi bi-plus-circle"></span></a>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="assets/img/cincosentidos1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
-              <div class="work-img">
-                <img src="assets/img/cincosentidos1.jpg" alt="" class="img-fluid">
-              </div>
-            </a>
-            <div class="work-content">
-              <div class="row">
-                <div class="col-sm-8">
-                  <h2 class="w-title">Cinco Sentidos</h2>
-                  <div class="w-more">
-                    <span class="w-ctegory">Desarrollo Web</span> / <span class="w-date">20 Ene. 2022</span>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="w-like">
-                    <a href="portfolio-details.html"> <span class="bi bi-plus-circle"></span></a>
-                  </div>
-                </div>
-              </div>
+              <button  type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#updateproject">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button  type="button" class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#delete">
+                <i class="bi bi-trash"></i>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section><!-- End Portfolio Section -->
+
+
+  <!-- Modal 
+<div class="modal fade" id="newproject" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: linear-gradient(50deg, #3b5acc  10%, #310441  90%);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="color: white;">Crear Proyecto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div class="container">
+          <form >
+            <h3 style="color: white;">Nombre del Proyecto</h3>
+            <div class="form-field">
+              <input id="project_name" type="text" placeholder=""
+              class="form-control"  />
+            </div>
+            <h3 style="color: white;">Descripcion del Proyecto</h3>
+            <div class="form-field">
+              <textarea id="description" type="text" placeholder=""
+              class="form-control"></textarea>
+            </div>
+            <h3 style="color: white;">Tipo de Proyecto</h3>
+            <div class="form-field">
+              <input id="type_project" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Cliente</h3>
+            <div class="form-field">
+              <input id="client" name="client" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Link de la Pagina</h3>
+            <div class="form-field">
+              <input id="link_proyect" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Fecha de Realización</h3>
+            <div class="form-field">
+              <input id="date_of_realization" type="date" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Imagen del Proyecto</h3>
+            <div class="form-field">
+              <input type="img_project" class="form-control" name="img_banner" required>
+            </div>
+            <div class="form-field">
+              <button class="btn btn-primary" type="submit">EDITAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<!-- Modal 
+<div class="modal fade" id="updateproject" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: linear-gradient(50deg, #3b5acc  10%, #310441  90%);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="color: white;">Editar Proyecto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div class="container">
+          <form >
+            <h3 style="color: white;">Nombre del Proyecto</h3>
+            <div class="form-field">
+              <input id="project_name" type="text" placeholder=""
+              class="form-control"  />
+            </div>
+            <h3 style="color: white;">Descripcion del Proyecto</h3>
+            <div class="form-field">
+              <textarea id="description" type="text" placeholder=""
+              class="form-control"></textarea>
+            </div>
+            <h3 style="color: white;">Tipo de Proyecto</h3>
+            <div class="form-field">
+              <input id="type_project" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Cliente</h3>
+            <div class="form-field">
+              <input id="client" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Link de la Pagina</h3>
+            <div class="form-field">
+              <input id="link_proyect" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Fecha de Realización</h3>
+            <div class="form-field">
+              <input id="date_of_realization" type="date" placeholder=""
+              class="form-control" />
+            </div>
+            <h3 style="color: white;">Imagen del Proyecto</h3>
+            <div class="form-field">
+              <input type="img_project" class="form-control" name="img_banner" required>
+            </div>
+            <div class="form-field">
+              <button class="btn btn-primary" type="submit">EDITAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->

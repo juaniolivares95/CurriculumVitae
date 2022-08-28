@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {HomeComponent} from "./components/home/home.component";
+import {AboutMeComponent} from "./components/about-me/about-me.component";
 import {ContactFormComponent} from "./components/contact-form/contact-form.component";
-import {ViewProjectComponent} from "./components/view-project/view-project.component";
+import {EducationComponent} from "./components/education/education.component";
+import {ExperienceComponent} from "./components/experience/experience.component";
+import {FooterComponent} from "./components/footer/footer.component";
+import {HomeComponent} from "./components/home/home.component";
+import {ListProjectsComponent} from "./components/list-projects/list-projects.component";
+import {MainNavComponent} from "./components/main-nav/main-nav.component";
 import {PortfolioComponent} from "./components/portfolio/portfolio.component";
-import {LoginComponent} from "./components/login/login.component";
+import {SkillsComponent} from "./components/skills/skills.component";
 
 
 const routes: Routes = [
@@ -14,21 +19,45 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path:"contactForm",
-    component: ContactFormComponent,
+    path:"aboutMe",
+    component: AboutMeComponent
   },
   {
-    path:"project",
-    component: ViewProjectComponent,
+    path:"contactForm",
+    component: ContactFormComponent
+  },
+  {
+    path:"education",
+    component: EducationComponent
+  },
+  {
+    path:"experience",
+    component: ExperienceComponent
+  },
+  {
+    path:"footer",
+    component: FooterComponent
+  },
+  {
+    path:"home",
+    component: HomeComponent
+  },
+  {
+    path:"listProjects",
+    component: ListProjectsComponent
+  },
+  {
+    path:"mainNav",
+    component: MainNavComponent
   },
   {
     path:"porfolio",
-    component: PortfolioComponent,
+    component: PortfolioComponent
   },
   {
-    path:"login",
-    component: LoginComponent,
-  },
+    path:"skills",
+    component: SkillsComponent
+  }
 ];
 
 @NgModule({
@@ -36,3 +65,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponents=[AboutMeComponent, ContactFormComponent, EducationComponent, ExperienceComponent, FooterComponent, HomeComponent, ListProjectsComponent, MainNavComponent, PortfolioComponent, SkillsComponent]
+

@@ -7,39 +7,31 @@
             <h1 class="title-a" style="color: white;">
               Experiencia
             </h1>
+            <button  type="button" class="btn btn-success" style="float: right;" data-bs-toggle="modal" data-bs-target="#newexperience">
+              <i class="bi bi-plus-square"></i>
+            </button>
             <div class="line-mf"></div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" *ngFor=" let experience of experiences">
           <div class="service-box">
             <div class="service-ico">
-              <span class="ico-circle"><i class="bi bi-briefcase"></i></span>
+              <span class="ico-circle"><i class="{{experience.img_company}}"></i></span>
             </div>
             <div class="service-content">
-              <h2 class="s-title">DISEÑO WEB</h2>
+              <h2 class="s-title">{{experience.type_of_job}}</h2>
               <p class="s-description text-center">
-                Un área enfocada en el desarrollo de interfaces digitales, 
-                como el diseño de sitios y aplicaciones para web. Para ello, los diseñadores web 
-                crean las páginas utilizando lenguajes de marcado como HTML.
+                {{experience.description_job}}
               </p>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="bi bi-card-checklist"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">DESARROLLO WEB</h2>
-              <p class="s-description text-center">
-                Construir y mantener sitios web; es el trabajo que tiene lugar en 
-                un segundo plano y que permite que una web tenga una apariencia impecable, un funcionamiento 
-                rápido y un buen desempeño para permitir la mejor experiencia de usuario.
-              </p>
-            </div>
+            <button  type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#updatexperience">
+              <i class="bi bi-pencil-fill"></i>
+            </button>
+            <button  type="button" class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#delete">
+              <i class="bi bi-trash"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -48,6 +40,9 @@
   <!-- ======= Counter Section ======= -->
   <div class="section-counter paralax-mf bg-image"  style="background: linear-gradient(50deg, #3b5acc  10%, #310441  90%);">
     <div class="container position-relative">
+      <button  type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#mostrador">
+        <i class="bi bi-pencil-fill"></i>
+      </button>
       <div class="row">
         <div class="col-sm-3 col-lg-3">
           <div class="counter-box counter-box pt-4 pt-md-0">
@@ -66,7 +61,7 @@
               <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
             </div>
             <div class="counter-num">
-              <p data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="counter purecounter">1</p>
+              <p data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="counter purecounter">{{profile?.experience}}</p>
               <span class="counter-text">AÑOS DE EXPERIENCIA</span>
             </div>
           </div>
@@ -77,7 +72,7 @@
               <span class="ico-circle"><i class="bi bi-people"></i></span>
             </div>
             <div class="counter-num">
-              <p data-purecounter-start="0" data-purecounter-end="550" data-purecounter-duration="1" class="counter purecounter">2</p>
+              <p data-purecounter-start="0" data-purecounter-end="550" data-purecounter-duration="1" class="counter purecounter">{{profile?.clients}}</p>
               <span class="counter-text">TOTAL CLIENTES</span>
             </div>
           </div>
@@ -95,4 +90,112 @@
         </div>
       </div>
     </div>
-  </div><!-- End Counter Section -->
+  </div>
+  <!-- End Counter Section -->
+
+
+
+<!-- Modal 
+<div class="modal fade" id="newexperience" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: linear-gradient(50deg, #3b5acc  10%, #310441  90%);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="color: white;">Crear Experiencia</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div class="container">
+          <form >
+            <h3 style="color: white;">Titulo</h3>
+            <div class="form-field">
+              <input id="type_of_job" type="text" placeholder=""
+              class="form-control"  />
+            </div>
+            <h3 style="color: white;">Descripcion de la Experiencia</h3>
+            <div class="form-field">
+              <textarea id="description_job" type="text" placeholder=""
+              class="form-control"></textarea>
+            </div>
+            <h3 style="color: white;">Clase del Icono(bootstrap)</h3>
+            <div class="form-field">
+              <input id="img_company" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <div class="form-field">
+              <button class="btn btn-primary" type="submit">EDITAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<!-- Modal 
+<div class="modal fade" id="updatexperience" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: linear-gradient(50deg, #3b5acc  10%, #310441  90%);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="color: white;">Editar Experiencia</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div class="container">
+          <form >
+            <h3 style="color: white;">Titulo</h3>
+            <div class="form-field">
+              <input id="type_of_job" type="text" placeholder=""
+              class="form-control"  />
+            </div>
+            <h3 style="color: white;">Descripcion de la Experiencia</h3>
+            <div class="form-field">
+              <textarea id="description_job" type="text" placeholder=""
+              class="form-control"></textarea>
+            </div>
+            <h3 style="color: white;">Clase del Icono(bootstrap)</h3>
+            <div class="form-field">
+              <input id="img_company" type="text" placeholder=""
+              class="form-control" />
+            </div>
+            <div class="form-field">
+              <button class="btn btn-primary" type="submit">EDITAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<!-- Modal 
+<div class="modal fade" id="mostrador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: linear-gradient(50deg, #3b5acc  10%, #310441  90%);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="color: white;">Editar Mostrador</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div class="container">
+          <form >
+            <h3 style="color: white;">Años de Experiencia</h3>
+            <div class="form-field">
+              <input id="experience" type="number" placeholder=""
+              class="form-control"  />
+            </div>
+            <h3 style="color: white;">Cantidad de Clientes</h3>
+            <div class="form-field">
+              <input id="clients" type="number" placeholder=""
+              class="form-control" />
+            </div>
+            <p style="color: white;">Cantidad de titulos y de trabajos completos de calcula automaticamente.</p>
+            
+            <div class="form-field">
+              <button class="btn btn-primary" type="submit">EDITAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->

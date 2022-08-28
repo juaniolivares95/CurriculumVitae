@@ -26,15 +26,23 @@
         <h5 class="modal-title" id="staticBackdropLabel" style="color: white;">Iniciar Sesión</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      
       <div class="modal-body" >
         <div class="container">
-          <form>
+          <form >
+            <h3 style="color: black;"><i class="bi bi-person"></i> Email</h3>
             <div class="form-field">
-              <input type="email" placeholder="Email / Username" required/>
+              <input id="email" type="email" placeholder="Email" formControlName="email"
+              
+              class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"/>
             </div>
             
+            <h3 style="color: black;"><i class="bi bi-key"></i> Contraseña</h3>
             <div class="form-field" >
-              <input type="password" placeholder="Password" required/>                         </div>
+              <input id="password" type="password" placeholder="Password" formControlName="password"
+            
+              class="form-control" id="exampleInputPassword" aria-describedby="passwordHelp"/>  
+            </div>
             
             <div class="form-field">
               <button class="btn" type="submit">INGRESAR</button>

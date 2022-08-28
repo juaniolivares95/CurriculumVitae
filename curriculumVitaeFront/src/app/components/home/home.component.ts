@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from 'src/app/services/projects.service';
+import { Profile } from 'src/app/models/profile';
+import { ProfileService } from 'src/app/services/api/profile.service';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +9,23 @@ import { ProjectsService } from 'src/app/services/projects.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  miPorfolio:any;
-  constructor(private datosPorfolio:ProjectsService) { }
+  public profile: Profile  | undefined;
+
+  constructor(private profileService:ProfileService) { }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data =>{
-      console.log(data);
-      this.miPorfolio=data;
-    });
+    this.getProfile();
+  }
+
+  public getProfile():void{
+    this.profileService.getProfile().subscribe({
+      next:(response : Profile)=>{
+        this.profile=response;
+      },
+      error:(error:HttpErrorResponse)=>{
+        alert(error.message);
+      }
+    })
   }
 
 }

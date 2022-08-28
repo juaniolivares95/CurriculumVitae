@@ -4,6 +4,9 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="box-shadow-full">
+          <button  type="button" class="btn btn-primary" (click)="onOpenModal('edit',profile)" style="float: right;" data-bs-toggle="modal" data-bs-target="#aboutMe">
+            <i class="bi bi-pencil-fill"></i>
+          </button>
           <div class="row">
             <div class="col-md-6">
               <div class="row">
@@ -14,13 +17,21 @@
                 </div>
                 <div class="col-sm-6 col-md-7">
                   <div class="about-info">
-                    <p><span class="bi bi-bookmark"></span><span class="title-s"> Nombre: </span> <span>Juan Ignacio Olivares</span></p>
-                    <p><span class="bi bi-person"></span><span class="title-s"> Perfil: </span> <span>Full stack developer</span></p>
-                    <p><span class="bi bi-calendar4-event"></span><span class="title-s"> Nacimiento: </span> <span>05/01/2000</span></p>
-                    <p><span class="bi bi-envelope"></span><span class="title-s"> Email: </span> <span>juaniolivares95@gmail.com</span></p>
-                    <p><span class="bi bi-phone"></span><span class="title-s"> Teléfono: </span> <span>(261) 586-8094</span></p>
-                    <p><span class="bi bi-geo-alt"></span><span class="title-s"> Ciudad: </span> <span>Lujan de Cuyo, Mendoza, Argentina, M5517</span></p>
+                    <p><span class="bi bi-bookmark"></span><span class="title-s"> Nombre: </span>{{profile?.name}}<span></span></p>
+                    <p><span class="bi bi-person"></span><span class="title-s"> Perfil: </span> <span>{{profile?.degree}}</span></p>
+                    <p><span class="bi bi-calendar4-event"></span><span class="title-s"> Nacimiento: </span> <span>{{profile?.birth}}</span></p>
+                    <p><span class="bi bi-envelope"></span><span class="title-s"> Email: </span> <span>{{profile?.email}}</span></p>
+                    <p><span class="bi bi-phone"></span><span class="title-s"> Teléfono: </span> <span>{{profile?.phone}}</span></p>
+                    <p><span class="bi bi-geo-alt"></span><span class="title-s"> Ciudad: </span> <span>{{profile?.city}}</span></p>
                   </div>
+                </div>
+                <div class="socials">
+                  <ul>
+                    <li><a href="https://www.facebook.com/juani.olivares.14"><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
+                    <li><a href="https://www.instagram.com/juani_olivaress/"><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
+                    <li><a href="mailto:juaniolivares95@gmail.com"><span class="ico-circle"><i class="bi bi-envelope-plus"></i></span></a></li>
+                    <li><a href=""><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -32,13 +43,7 @@
                   </h2>
                 </div>
                 <p class="lead">
-                  Estudio Ingenieria en sistemas de la información en la Universidad
-                  Tecnológica Nacional FRM, actualmente estoy
-                  cursando cuarto año.
-                </p>
-                <p class="lead">
-                  Me recibi en el instituto San Pablo con el titulo "bachillerato en
-                  informatica",adquirio conocimientos en distintos lenguajes de programación.
+                  {{profile?.description_professional}}
                 </p>
               </div>
             </div>
@@ -48,3 +53,68 @@
     </div>
   </div>
 </section><!-- End About Section -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="aboutMe" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: linear-gradient(50deg, #3b5acc  10%, #310441  90%);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel" style="color: white;">Editar Perfil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div class="container">
+          <form #editForm="ngForm" (ngSubmit)="updateProfile(editForm.value)" novalidate>
+            
+            <h3 style="color: white;">Nombre y Apellido</h3>
+            <div class="form-group">
+              <input ngModel='{{editProfile?.name}}' id="name" name="name" type="text" class="form-control"  value="{{profile?.name}}" />
+            </div>
+
+            <h3 style="color: white;">Perfil</h3>
+            <div class="form-group">
+              <input ngModel='{{editProfile?.degree}}' id="degree" name="degree" type="text" class="form-control"  value="{{profile?.degree}}" />
+            </div>
+
+            <h3 style="color: white;">Nacimiento</h3>
+            <div class="form-group">
+              <input ngModel='{{editProfile?.birth}}' id="birth" name="birth" type="date" class="form-control"  value="{{profile?.birth}}"/>
+            </div>
+
+            <h3 style="color: white;">Email</h3>
+            <div class="form-group">
+              <input ngModel='{{editProfile?.email}}' id="email" name="email" type="text" class="form-control"  value="{{profile?.email}}"/>
+            </div>
+            <h3 style="color: white;">Telefono</h3>
+            <div class="form-group">
+              <input ngModel='{{editProfile?.phone}}' id="phone" name="phone" type="text" class="form-control"  value="{{profile?.phone}}" />
+            </div>
+            <h3 style="color: white;">Ciudad</h3>
+            <div class="form-group">
+              <input ngModel='{{editProfile?.city}}' id="city" name="city" type="text" class="form-control"  value="{{profile?.city}}"/>
+            </div>
+            <h3 style="color: white;">Descripcion Personal</h3>
+            <div class="form-group">
+              <textarea ngModel='{{editProfile?.description_professional}}' id="description_professional" name="description_professional" type="text" class="form-control" value="{{profile?.description_professional}}">{{profile?.description_professional}}</textarea>
+            </div>
+            <h3 style="color: white;">Imagen de Perfil</h3>
+            <div class="form-group">
+              <input ngModel='{{editProfile?.img_perfil}}' id="img_perfil" name="img_perfil" type="file" class="form-control" >
+            </div>
+            <p>{{profile?.img_perfil}}</p>
+            <h3 style="color: white;">Imagen del Banner</h3>
+            <div class="form-group">
+              <input ngModel='{{editProfile?.img_banner}}' id="img_banner" name="img_banner" type="file" class="form-control" >
+            </div>
+            <p>{{profile?.img_banner}}</p>
+            <div class="form-field">
+              <button class="btn btn-primary" (click)="updateProfile(editForm.value)"   type="submit" >EDITAR</button>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
