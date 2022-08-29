@@ -8,7 +8,7 @@ import { Project } from 'src/app/models/project';
 })
 export class ProjectService {
 
-  private apiServerUrl='http://localhost:8080/api/project';
+  private apiServerUrl='/api/project';
   constructor(private http:HttpClient) { }
 
   public getProjects():Observable<Project[]>{        

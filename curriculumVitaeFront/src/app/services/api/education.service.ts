@@ -7,7 +7,7 @@ import { Education } from 'src/app/models/education';
   providedIn: 'root'
 })
 export class EducationService {
-  private apiServerUrl='http://localhost:8080/api/education';
+  private apiServerUrl='/api/education';
 
   constructor(private http:HttpClient) { }
 
